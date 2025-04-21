@@ -8,7 +8,7 @@ services:
     command: tunnel run
     volumes:
       - ./config.yml:/etc/cloudflared/config.yml:ro
-      - ./<TON_UUID_TUNNEL_QIP>.json:/etc/cloudflared/<TON_UUID_TUNNEL_QIP>.json:ro
+      - ./aef29b23-3e69-4b99-b74d-29ffa1374cb6.json:/etc/cloudflared/aef29b23-3e69-4b99-b74d-29ffa1374cb6.json:ro
     networks:
       - woodpecker_default
       - qip_backend_net       # ✅ backend Django (staging & prod)

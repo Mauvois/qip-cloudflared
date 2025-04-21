@@ -1,4 +1,4 @@
-tunnel: <TON_UUID_TUNNEL_QIP>
+tunnel: aef29b23-3e69-4b99-b74d-29ffa1374cb6
 credentials-file: /etc/cloudflared/<TON_UUID_TUNNEL_QIP>.json
 loglevel: debug
 
