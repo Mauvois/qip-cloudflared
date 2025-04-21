@@ -1,0 +1,23 @@
+tunnel: <TON_UUID_TUNNEL_QIP>
+credentials-file: /etc/cloudflared/<TON_UUID_TUNNEL_QIP>.json
+loglevel: debug
+
+ingress:
+  # Backend staging
+  - hostname: staging-api.qip.ovh
+    service: http://qip_api_staging:80
+
+  # Backend production
+  - hostname: api.qip.ovh
+    service: http://qip_api_prod:80
+
+  # Frontend staging
+  - hostname: staging.qip.ovh
+    service: http://frontend_staging:80
+
+  # Frontend production
+  - hostname: qip.ovh
+    service: http://frontend_prod:80
+
+  # Catch-all route
+  - service: http_status:404

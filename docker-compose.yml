@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared_qip
+    restart: unless-stopped
+    command: tunnel run
+    volumes:
+      - ./config.yml:/etc/cloudflared/config.yml:ro
+      - ./<TON_UUID_TUNNEL_QIP>.json:/etc/cloudflared/<TON_UUID_TUNNEL_QIP>.json:ro
+    networks:
+      - woodpecker_default
+      - qip_backend_net       # ✅ backend Django (staging & prod)
+      - qip_frontend_net      # ✅ frontend Vue (staging & prod)
+
+networks:
+  woodpecker_default:
+    external: true
+  qip_backend_net:
+    external: true
+  qip_frontend_net:
+    external: true
